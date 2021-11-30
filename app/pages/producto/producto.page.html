@@ -1,0 +1,69 @@
+<ion-content>
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-title slot="start">Agrega un producto</ion-title>
+    <ion-icon slot="start" name="bag-check-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  <ion-item>
+        <ion-label position="stacked">Código</ion-label>
+        <ion-input type="number" [(ngModel)]="newProducto.codigo" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="newProducto.nombre" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+         <ion-label position="stacked">Precio</ion-label>
+         <ion-input type="number" [(ngModel)]="newProducto.precio" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+       <ion-label position="stacked">Stock</ion-label>
+       <ion-input type="number" [(ngModel)]="newProducto.stock" required></ion-input>
+  </ion-item>
+<ion-button (click)="addProducto()" mode="ios" expand="full" color="primary">
+  Agregar
+</ion-button>
+<ion-text color="primary">
+  <h1  style="text-align: center;">Lista de productos</h1>
+</ion-text>
+<ion-list #myList>
+  <ion-list-header>
+    <ion-label><h3>Nombre</h3></ion-label>
+    <ion-label><h3>Precio</h3></ion-label>
+    <ion-label><h3>Unidades</h3></ion-label>
+    <ion-label><h3>Código</h3></ion-label>
+    
+    
+  </ion-list-header>
+  <ion-list>
+
+      
+      <ion-row *ngFor="let producto of productos">
+        <ion-col>
+          <div style="color: brown;">{{producto.nombre}}</div>
+        </ion-col>
+        <ion-col>
+          <div>$ {{producto.precio}}</div>
+        </ion-col>
+        <ion-col>
+          <div>{{producto.stock}}</div>
+        </ion-col>
+        <ion-col>
+          <div>{{producto.codigo}}</div>
+        </ion-col>
+      </ion-row>
+
+
+
+  </ion-list>
+</ion-list>
+
+
+</ion-content>
